@@ -5,103 +5,111 @@
     <title>Rulab</title>
     <meta content="Bugliotti Marcos, Sanchez Jeronimo" name="Autores">
     <meta content="Web de ruleta " name="descripcion">
-    <meta content="ruleta, apuestas, dinero" name="palabras_claves" >
+    <meta content="ruleta, apuestas, dinero" name="palabras_claves">
     <link rel="stylesheet" href="miestilo.css" type="text/css">
+    <link rel="shorcut icon" href="imagenes/iconoruleta.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
-    <img src="imagenes/iconoruleta.png" width="25" height="25" alt="Icono de ruleta">
-    <h1>
-    Rulab
-</h1>
+    <img src="imagenes/iconoruleta.png" id="icono" alt="Icono de ruleta">
+    <h1 class="tituloPrincipal">
+        Rulab
+    </h1>
 </header>
 <nav>
     <a href="reglas.html">Reglas</a>
 </nav>
-<article>
-    <div>
+<main>
+    <div class="resultados">
+        <canvas id="ruletamov">
+            El navegador no soporta canvas
+        </canvas>
         <p>
-        <label for="montoactual">Monto disponible: </label>
-        <input type="number" name="montoactual" id="montoactual" disabled>
+            <label for="numresultado">Resultado </label>
+            <input type="number" name="numresultado" id="numresultado" disabled>
         </p>
         <p>
-        <label for="nuevomonto"> Ingrese mas plata:</label>
-        <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1">
+            <label for="ganacias"> <strong> Ganaste: $ </strong> </label>
+            <input type="number" name="ganacias" id="ganacias" disabled>
         </p>
     </div>
-<div>
-    <section>
-    <p>
-        <h3>
-        ¿Que apostar?
-    </h3>
-    <p>
-        <label for="color">Color</label>
-        <input type="checkbox" name="color" value="color" id="color">
-        <label for="col">Opciones</label>
-        <select name="col" id="col">
-            <option value="negro">Negro</option>
-            <option value="rojo">Rojo</option>
-            <option value="verde">Verde</option>
-        </select>
-        <label for="valorapuestacolor">Apuesta:</label>
-        <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1">
-    </p>
-<p>
-    <label for="numero">Numero</label>
-    <input type="checkbox" name="numero" id="numero" value="numero">
-    <label for="numeroapuesta">¿A que numero desea apostar?</label>
-    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36">
-    <label for="valorapuestanumero">Apuesta:</label>
-    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1">
-</p>
-<p>
-    <label for="paroinpar">Par o Inpar</label>
-    <input type="checkbox" name="paroinpar" id="paroinpar" value="paroinpar">
-    <label for="par_inpar">Opciones</label>
-    <select name="par_inpar" id="par_inpar">
-        <option value="par">Par</option>
-        <option value="inpar">Inpar</option>
-    </select>
-    <label for="valorapuestapar">Apuesta:</label>
-    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1">
-</p>
-    <p>
-        <label for="docena">Docena</label>
-        <input type="checkbox" name="docena" id="docena" value="docena">
-        <label for="doc">Opciones</label>
-        <select name="doc" id="doc">
-            <option value="primera">Primera</option>
-            <option value="segunda">Segunda</option>
-            <option value="tercera">Tercera</option>
-        </select>
-        <label for="valorapuestadocena">Apuesta:</label>
-        <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1">
-    </p>
-</section>
-</div>
-    <div>
-        <p>
-            <button type="button" name="resetapuesta">Resetear apuesta</button>
-        </p>
-        <p>
-            <button type="button" name="repetirapuesta">Reiniciar apuesta</button>
-        </p>
-
-    </div>
-</article>
-<aside>
-<canvas id="ruletamov">
-    El navegador no soporta canvas
-</canvas>
-    <p>
-    <label for="numresultado">Resultado </label>
-    <input type="number" name="numresultado" id="numresultado" disabled>
-    </p>
-    <p>
-    <label for="ganacias"> <strong> Ganaste: $ </strong> </label>
-    <input type="number" name="ganacias" id="ganacias" disabled>
-    </p>
-</aside>
+    <article>
+        <div>
+            <p>
+                <label for="montoactual">Monto disponible: </label>
+                <input type="number" name="montoactual" id="montoactual" disabled>
+            </p>
+            <p>
+                <label for="nuevomonto"> Ingrese mas plata:</label>
+                <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1">
+            </p>
+        </div>
+        <div>
+            <section>
+                <p>
+                <h3>
+                    ¿Que apostar?
+                </h3>
+                <p>
+                    <label for="color">Color</label>
+                    <input type="checkbox" name="color" value="color" id="color">
+                    <label for="col">Opciones</label>
+                    <select name="col" id="col">
+                        <option value="negro">Negro</option>
+                        <option value="rojo">Rojo</option>
+                        <option value="verde">Verde</option>
+                    </select>
+                    <label for="valorapuestacolor">Apuesta:</label>
+                    <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1">
+                </p>
+                <p>
+                    <label for="numero">Numero</label>
+                    <input type="checkbox" name="numero" id="numero" value="numero">
+                    <label for="numeroapuesta">¿A que numero desea apostar?</label>
+                    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36">
+                    <label for="valorapuestanumero">Apuesta:</label>
+                    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1">
+                </p>
+                <p>
+                    <label for="paroimpar">Par o Impar</label>
+                    <input type="checkbox" name="paroimpar" id="paroimpar" value="paroimpar">
+                    <label for="par_impar">Opciones</label>
+                    <select name="par_impar" id="par_impar">
+                        <option value="par">Par</option>
+                        <option value="impar">Impar</option>
+                    </select>
+                    <label for="valorapuestapar">Apuesta:</label>
+                    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1">
+                </p>
+                <p>
+                    <label for="docena">Docena</label>
+                    <input type="checkbox" name="docena" id="docena" value="docena">
+                    <label for="doc">Opciones</label>
+                    <select name="doc" id="doc">
+                        <option value="primera">Primera</option>
+                        <option value="segunda">Segunda</option>
+                        <option value="tercera">Tercera</option>
+                    </select>
+                    <label for="valorapuestadocena">Apuesta:</label>
+                    <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1">
+                </p>
+            </section>
+        </div>
+        <div>
+            <p>
+                <button type="button" name="apostar">Esta apuesta</button>
+            </p>
+            <p>
+                <button type="button" name="resetapuesta">Resetear apuesta</button>
+            </p>
+            <p>
+                <button type="button" name="repetirapuesta">Repetir apuesta</button>
+            </p>
+        </div>
+    </article>
+</main>
 </body>
 </html>
