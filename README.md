@@ -9,7 +9,7 @@ Una página web para apostar en una ruleta
 * HTML5
 
 ### Link al sitio 
-[rulab] (https://ucc-labcompu2.github.io/proyecto2023-bugliotti-sanchez/)
+[Rulab](https://ucc-labcompu2.github.io/proyecto2023-bugliotti-sanchez/)
 
 ## Requisitos del Primer Parcial
 
