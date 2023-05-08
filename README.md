@@ -1,13 +1,15 @@
 # Rulab
-Una pagina web para apostar en una ruleta
+Una página web para apostar en una ruleta
 
 ## Autores 
-Bugliotti Marcos
-Sanchez Jeronimo
-## Tecnologias usad
-as 
-CSS3
-HTML5
+* Bugliotti Marcos
+* Sanchez Jeronimo
+## Tecnologias usadas 
+* CSS3
+* HTML5
+
+### Link al sitio 
+[rulab] (https://ucc-labcompu2.github.io/proyecto2023-bugliotti-sanchez/)
 
 ## Requisitos del Primer Parcial
 

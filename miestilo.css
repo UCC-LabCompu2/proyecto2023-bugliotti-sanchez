@@ -28,7 +28,10 @@ body{
     color: #151515;
 }
 section{
-    width: 35em;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width: 40em;
     background: #0a7542;
     box-shadow: 1px 1px 2px 2px #f1f6f6;
 }
@@ -38,8 +41,4 @@ section{
     border-right: 5em;
     text-align: center;
     padding-top: 10em;
-}
-
-#valorapuestanumero{
-    width: 6em;
 }
