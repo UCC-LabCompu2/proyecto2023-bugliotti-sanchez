@@ -13,6 +13,8 @@ h1{
 a{
     color: #0d74ab;
     margin: 30px;
+    background: #232323;
+    border: #1c5fba;
 }
 a:hover{
     font-size: 2em;
@@ -31,7 +33,7 @@ section{
     padding-top: 5px;
     padding-left: 15px;
     padding-bottom: 5px;
-    width: 40em;
+    width: 42em;
     background: #0a7542;
     box-shadow: 1px 1px 2px 2px #f1f6f6;
 }

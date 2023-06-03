@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <script  type="text/javascript" src="javaproyecto.js"></script>
 </head>
 <body>
 <header>
@@ -35,17 +36,23 @@
             <label for="ganacias"> <strong> Ganaste: $ </strong> </label>
             <input type="number" name="ganacias" id="ganacias" disabled>
         </p>
+        <p>
+            <label for="cantapostada"> <strong> Apuesta: $ </strong> </label>
+            <input type="number" name="cantapostada" id="cantapostada" disabled>
+        </p>
     </div>
     <article>
         <div>
+            <form class="montos" name="montos">
             <p>
                 <label for="montoactual">Monto disponible: </label>
                 <input type="number" name="montoactual" id="montoactual" disabled>
             </p>
             <p>
-                <label for="nuevomonto"> Ingrese mas plata:</label>
-                <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1">
+                <label for="nuevomonto"> Ingresar o retirar plata:</label>
+                <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1" onchange="monto(this.value)">
             </p>
+            </form>
         </div>
         <div>
             <section>
@@ -55,7 +62,7 @@
                 </h3>
                 <p>
                     <label for="color">Color</label>
-                    <input type="checkbox" name="color" value="color" id="color">
+                    <input type="checkbox" name="color" id="color">
                     <label for="col">Opciones</label>
                     <select name="col" id="col">
                         <option value="negro">Negro</option>
@@ -63,30 +70,30 @@
                         <option value="verde">Verde</option>
                     </select>
                     <label for="valorapuestacolor">Apuesta:</label>
-                    <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1">
+                    <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1" onchange="negativo(this.id,this.value)">
                 </p>
                 <p>
                     <label for="numero">Numero</label>
-                    <input type="checkbox" name="numero" id="numero" value="numero">
+                    <input type="checkbox" name="numero" id="numero">
                     <label for="numeroapuesta">¿A que numero desea apostar?</label>
-                    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36">
+                    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36" onchange="numruleta()">
                     <label for="valorapuestanumero">Apuesta:</label>
-                    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1">
+                    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1" onchange="negativo(this.id, this.value)">
                 </p>
                 <p>
                     <label for="paroimpar">Par o Impar</label>
-                    <input type="checkbox" name="paroimpar" id="paroimpar" value="paroimpar">
+                    <input type="checkbox" name="paroimpar" id="paroimpar">
                     <label for="par_impar">Opciones</label>
                     <select name="par_impar" id="par_impar">
                         <option value="par">Par</option>
                         <option value="impar">Impar</option>
                     </select>
                     <label for="valorapuestapar">Apuesta:</label>
-                    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1">
+                    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1" onchange="negativo(this.id,this.value)">
                 </p>
                 <p>
                     <label for="docena">Docena</label>
-                    <input type="checkbox" name="docena" id="docena" value="docena">
+                    <input type="checkbox" name="docena" id="docena">
                     <label for="doc">Opciones</label>
                     <select name="doc" id="doc">
                         <option value="primera">Primera</option>
@@ -94,19 +101,19 @@
                         <option value="tercera">Tercera</option>
                     </select>
                     <label for="valorapuestadocena">Apuesta:</label>
-                    <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1">
+                    <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1" onchange="negativo(this.id, this.value)">
                 </p>
             </section>
         </div>
         <div>
             <p>
-                <button type="button" name="apostar">Confirmar esta apuesta</button>
+                <button type="button" name="apostar" onclick="girarrula()" >Confirmar esta apuesta</button>
             </p>
             <p>
-                <button type="button" name="resetapuesta">Resetear apuesta</button>
+                <button type="button" name="resetapuesta" onclick="blanquear()">Resetear apuesta</button>
             </p>
             <p>
-                <button type="button" name="repetirapuesta">Repetir apuesta anterior</button>
+                <button type="button" name="repetirapuesta" onclick="">Repetir apuesta anterior</button>
             </p>
         </div>
     </article>
