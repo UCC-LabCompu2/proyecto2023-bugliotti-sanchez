@@ -25,6 +25,7 @@ let monto =(plata)=>{
 let numruleta =()=> {
     let valor;
     valor= document.getElementById("numeroapuesta").value;
+    console.log(valor);
     if (valor%1!=0){
         alert("no se puede ser numero decimal");
         document.getElementById("numeroapuesta").value= "";
@@ -77,33 +78,47 @@ let blanquear =()=>{
 var rdoce, rpoi, rcol;
 let girarrula =()=> {
     let res, doce, numer, poi, col, suma, apnum, apdo, apco, appa, ccheckbox, ncheckbox,pcheckbox,dcheckbox,gan;
-    apnum = Number(document.getElementById("valorapuestanumero").value);
-    appa = Number(document.getElementById("valorapuestapar").value);
-    apco = Number(document.getElementById("valorapuestacolor").value);
-    apdo = Number(document.getElementById("valorapuestadocena").value);
+
     ccheckbox = document.getElementById("color").checked;
     ncheckbox = document.getElementById("numero").checked;
     pcheckbox = document.getElementById("paroimpar").checked;
     dcheckbox = document.getElementById("docena").checked;
     suma =0;
     if (ccheckbox){
+        apco = Number(document.getElementById("valorapuestacolor").value);
+        if (apco==""){
+            alert("Se debe ingresar la cantidad que se desea apostar al color");
+        }
         suma += apco;
-        console.log(suma);
     }
     if (ncheckbox){
+        apnum = Number(document.getElementById("valorapuestanumero").value);
+        numer =document.getElementById("numeroapuesta").value;
+        if (apnum==""){
+            alert("Se debe ingresar la cantidad que se desea apostar al color");
+        }
         suma += apnum;
-        console.log(suma);
+        if (numer=="") {
+            alert("Se debe ingresar el numero al que quiere apostar al numero");
+        }
     }
     if (pcheckbox){
+        appa = Number(document.getElementById("valorapuestapar").value);
+        if (appa==""){
+            alert("Se debe ingresar la cantidad que se desea apostar al par/impar");
+        }
         suma += appa;
-        console.log(suma);
     }
     if (dcheckbox){
+        apdo = Number(document.getElementById("valorapuestadocena").value);
+        if (apdo==""){
+            alert("Se debe ingresar la cantidad que se desea apostar a la docena");
+        }
         suma += apdo;
-        console.log(suma);
+
     }
-    document.getElementById("cantapostada").value=suma;
     monto(Number(-suma));
+
     if (suma ==0){
         alert("Se debe hacer alguna apuesta");
         aceptar=false;
@@ -134,53 +149,47 @@ let girarrula =()=> {
         }else {
             rcol = "negro";
         }
-        document.getElementById("numresultado").value=res;
         console.log( res);
         console.log( rcol);
         console.log( rdoce);
         console.log( rpoi);
 
         //Verificar que el resultado es el mismo valor que el que fue apostado
-        doce = document.getElementById("doc").value;
-        numer =document.getElementById("numeroapuesta").value;
-        poi = document.getElementById("par_impar").value;
-        col = document.getElementById("col").value;
+
         if (ncheckbox) {
             if (res == numer) {
                 gan= Number(gan + (apnum *36));
-                console.log(gan);
             }
         }
-        console.log(gan);
         if (dcheckbox) {
+            doce = document.getElementById("doc").value;
             if (rdoce == doce) {
                 gan= Number(gan +(apdo *3));
-                console.log(gan);
             }
         }
         if (pcheckbox){
+            poi = document.getElementById("par_impar").value;
         if (rpoi == poi) {
             gan= Number(gan +(appa *2));
-            console.log(gan);
         }
     }
     if (ccheckbox) {
+        col = document.getElementById("col").value;
         if (rcol == col) {
-            if (col == "verde"){
                 gan=Number(gan +(apco*36));
-                console.log(gan);
-            }else {
-                gan=Number(gan +(apco*2));
-                console.log(gan);
-            }
         }
     }
         document.getElementById("ganacias").value= gan;
+        document.getElementById("numresultado").value=res;
+        document.getElementById("cantapostada").value=suma;
         monto(gan);
-        alert("Resultados:  " +
-            "   Color: "+ rcol +
-            "   Numero:   "+ res +
-            "   Par o impar:  "+ rpoi+
-            "   Docena: "+ rdoce);
     }
+}
+let imgruleta =()=>{
+    const canvas =document.getElementById("ruletamov");
+    const ctx = canvas.getContext("2d");
+   // canvas.width=canvas.width;
+    let img= new Image();
+    img.src ="imagenes/ruleta.jpg";
+    ctx.drawImage(img);
 }
