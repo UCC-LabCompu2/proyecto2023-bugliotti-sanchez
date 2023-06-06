@@ -1,4 +1,3 @@
-
 /**
  * modifica el monto disponible
  * @method monto
@@ -73,12 +72,29 @@ let blanquear =()=>{
     document.getElementById("col").value=ocolor;
     document.getElementById("valorapuestacolor").value=acolor;
 
+    document.getElementById("numero").checked =ncheckbox;
+    document.getElementById("numeroapuesta").value=onumero;
+    document.getElementById("valorapuestanumero").value= anumero;
+
+    document.getElementById("paroimpar").checked =pcheckbox;
+    document.getElementById("par_impar").value=opar;
+    document.getElementById("valorapuestapar").value= apar;
+
+    document.getElementById("docena").checked =dcheckbox;
+    document.getElementById("doc").value=odocena;
+    document.getElementById("valorapuestadocena").value= adocena;
+
 
 }
+
 var rdoce, rpoi, rcol;
+/**
+ * este funcion sirve para que genere un numero aleatorio entre el 0 y el 36 y poder comprobar  si la apuesta es correcta
+ * @method girarula
+ */
 let girarrula =()=> {
     let res, doce, numer, poi, col, suma, apnum, apdo, apco, appa, ccheckbox, ncheckbox,pcheckbox,dcheckbox,gan;
-
+    //verificar checkbox y que se haya ingresado la cantidad que se desea apostar a cada uno
     ccheckbox = document.getElementById("color").checked;
     ncheckbox = document.getElementById("numero").checked;
     pcheckbox = document.getElementById("paroimpar").checked;
@@ -93,14 +109,11 @@ let girarrula =()=> {
     }
     if (ncheckbox){
         apnum = Number(document.getElementById("valorapuestanumero").value);
-        numer =document.getElementById("numeroapuesta").value;
         if (apnum==""){
-            alert("Se debe ingresar la cantidad que se desea apostar al color");
+            alert("Se debe ingresar la cantidad que se desea apostar al numero");
         }
         suma += apnum;
-        if (numer=="") {
-            alert("Se debe ingresar el numero al que quiere apostar al numero");
-        }
+
     }
     if (pcheckbox){
         appa = Number(document.getElementById("valorapuestapar").value);
@@ -118,11 +131,18 @@ let girarrula =()=> {
 
     }
     monto(Number(-suma));
-
     if (suma ==0){
         alert("Se debe hacer alguna apuesta");
         aceptar=false;
     }
+    if (ncheckbox) {
+        numer =document.getElementById("numeroapuesta").value;
+        if (numer == "") {
+            alert("Se debe ingresar el numero al que quiere apostar al numero");
+            aceptar=false;
+        }
+    }
+    //se acepta o rechaza la apuesta y empieza a "girar la ruleta"
     if (aceptar) {
         gan =0;
         res = Math.round(Math.random() * (36) + parseInt(0));
@@ -175,8 +195,10 @@ let girarrula =()=> {
     }
     if (ccheckbox) {
         col = document.getElementById("col").value;
-        if (rcol == col) {
-                gan=Number(gan +(apco*36));
+        if (rcol=="verde"){
+            gan=Number(gan +(apco*36));
+        }else if (rcol == col) {
+                gan=Number(gan +(apco*2));
         }
     }
         document.getElementById("ganacias").value= gan;
@@ -185,11 +207,16 @@ let girarrula =()=> {
         monto(gan);
     }
 }
-let imgruleta =()=>{
+/**
+ * Sirve para generar la pelota de la ruleta
+ * @method pelotaruleta
+ */
+let pelotaruleta =()=>{
     const canvas =document.getElementById("ruletamov");
     const ctx = canvas.getContext("2d");
    // canvas.width=canvas.width;
-    let img= new Image();
-    img.src ="imagenes/ruleta.jpg";
-    ctx.drawImage(img);
+    ctx.fillStyle="#FFFFFFFF";
+    ctx.arc(200, 79, 3, 0, 2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
 }
