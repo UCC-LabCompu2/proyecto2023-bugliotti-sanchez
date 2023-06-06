@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
-    <script  type="text/javascript" src="javaproyecto.js"></script>
+    <script type="text/javascript" src="javaproyecto.js"></script>
 </head>
 <body onload="pelotaruleta()">
 <header>
@@ -45,14 +45,15 @@
     <article>
         <div>
             <form class="montos" name="montos">
-            <p>
-                <label for="montoactual">Monto disponible: </label>
-                <input type="number" name="montoactual" id="montoactual" disabled>
-            </p>
-            <p>
-                <label for="nuevomonto"> Ingresar o retirar plata:</label>
-                <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1" onchange="monto(this.value)">
-            </p>
+                <p>
+                    <label for="montoactual">Monto disponible: </label>
+                    <input type="number" name="montoactual" id="montoactual" disabled>
+                </p>
+                <p>
+                    <label for="nuevomonto"> Ingresar o retirar plata:</label>
+                    <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1"
+                           onchange="monto(this.value)">
+                </p>
             </form>
         </div>
         <div>
@@ -71,15 +72,18 @@
                         <option value="verde">Verde</option>
                     </select>
                     <label for="valorapuestacolor">Apuesta:</label>
-                    <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1" onchange="negativo(this.id,this.value)">
+                    <input type="number" name="valorapuestacolor" id="valorapuestacolor" min="1"
+                           onchange="negativo(this.id,this.value)">
                 </p>
                 <p>
                     <label for="numero">Numero</label>
                     <input type="checkbox" name="numero" id="numero">
                     <label for="numeroapuesta">¿A que numero desea apostar?</label>
-                    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36" onchange="numruleta()">
+                    <input type="number" name="numeroapuesta" id="numeroapuesta" min="0" max="36"
+                           onchange="numruleta()">
                     <label for="valorapuestanumero">Apuesta:</label>
-                    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1" onchange="negativo(this.id, this.value)">
+                    <input type="number" name="valorapuestanumero" id="valorapuestanumero" min="1"
+                           onchange="negativo(this.id, this.value)">
                 </p>
                 <p>
                     <label for="paroimpar">Par o Impar</label>
@@ -90,7 +94,8 @@
                         <option value="impar">Impar</option>
                     </select>
                     <label for="valorapuestapar">Apuesta:</label>
-                    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1" onchange="negativo(this.id,this.value)">
+                    <input type="number" name="valorapuestapar" id="valorapuestapar" min="1"
+                           onchange="negativo(this.id,this.value)">
                 </p>
                 <p>
                     <label for="docena">Docena</label>
@@ -102,13 +107,14 @@
                         <option value="tercera">Tercera</option>
                     </select>
                     <label for="valorapuestadocena">Apuesta:</label>
-                    <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1" onchange="negativo(this.id, this.value)">
+                    <input type="number" name="valorapuestadocena" id="valorapuestadocena" min="1"
+                           onchange="negativo(this.id, this.value)">
                 </p>
             </section>
         </div>
         <div>
             <p>
-                <button type="button" name="apostar" onclick="girarrula()" >Confirmar esta apuesta</button>
+                <button type="button" name="apostar" onclick="girarrula()">Confirmar esta apuesta</button>
             </p>
             <p>
                 <button type="button" name="resetapuesta" onclick="blanquear()">Resetear apuesta</button>
