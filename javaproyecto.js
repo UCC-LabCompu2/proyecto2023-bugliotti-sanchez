@@ -1,7 +1,7 @@
 /**
  * modifica el monto disponible
  * @method monto
- * @param {number} valor - cantidad que se desea sumar o restar al monto actual (ya sea apuesta, ganacia, plata ingresada o retirada)
+ * @param {plata} valor - cantidad que se desea sumar o restar al monto actual (ya sea apuesta, ganacia, plata ingresada o retirada)
  */
 var aceptar;
 let monto = (plata) => {
