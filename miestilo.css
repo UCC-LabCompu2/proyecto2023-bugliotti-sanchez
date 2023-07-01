@@ -54,14 +54,14 @@ section {
     border-right: 5em;
     text-align: center;
 }
-
 #ruletamov {
     border: 1px solid #000000;
-    width: 300px;
-    height: 300px;
+    height: 15em;
+    width: 15em;
     background-image: url("imagenes/rul.png");
     background-repeat: no-repeat;
     background-size: cover;
 
 }
+
 

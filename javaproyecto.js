@@ -88,13 +88,13 @@ let blanquear = () => {
 
 }
 
-var rdoce, rpoi, rcol;
+var res, rdoce, rpoi, rcol;
 /**
  * este funcion sirve para que genere un numero aleatorio entre el 0 y el 36 y poder comprobar  si la apuesta es correcta
  * @method girarula
  */
 let girarrula = () => {
-    let res, doce, numer, poi, col, suma, apnum, apdo, apco, appa, ccheckbox, ncheckbox, pcheckbox, dcheckbox, gan;
+    let  doce, numer, poi, col, suma, apnum, apdo, apco, appa, ccheckbox, ncheckbox, pcheckbox, dcheckbox, gan;
     //verificar checkbox y que se haya ingresado la cantidad que se desea apostar a cada uno
     ccheckbox = document.getElementById("color").checked;
     ncheckbox = document.getElementById("numero").checked;
@@ -175,6 +175,7 @@ let girarrula = () => {
         console.log(rdoce);
         console.log(rpoi);
 
+        comenzaranimacion();
         //Verificar que el resultado es el mismo valor que el que fue apostado
 
         if (ncheckbox) {
@@ -209,15 +210,146 @@ let girarrula = () => {
     }
 }
 /**
- * Sirve para generar la pelota de la ruleta
+*   Sirve para generar el delta grado que se usa para graficar la pelota en el resultado
+*   @method gradosimg
+*/
+let gradosimg =()=>{
+    let tita;
+    switch (res){
+        case 34: tita=2*(Math.PI)*(0/37);
+            break;
+        case 6: tita=2*(Math.PI)*(1/37);
+            break;
+        case 27: tita=2*(Math.PI)*(2/37);
+            break;
+        case 13: tita=2*(Math.PI)*(3/37);
+            break;
+        case 36: tita=2*(Math.PI)*(4/37);
+            break;
+        case 11: tita=2*(Math.PI)*(5/37);
+            break;
+        case 30: tita=2*(Math.PI)*(6/37);
+            break;
+        case 8: tita=2*(Math.PI)*(7/37);
+            break;
+        case 23: tita=2*(Math.PI)*(8/37);
+            break;
+        case 10: tita=2*(Math.PI)*(9/37);
+            break;
+        case 5: tita=2*(Math.PI)*(10/37);
+            break;
+        case 24: tita=2*(Math.PI)*(11/37);
+            break;
+        case 16: tita=2*(Math.PI)*(12/37);
+            break;
+        case 33: tita=2*(Math.PI)*(13/37);
+            break;
+        case 1: tita=2*(Math.PI)*(14/37);
+            break;
+        case 20: tita=2*(Math.PI)*(15/37);
+            break;
+        case 14: tita=2*(Math.PI)*(16/37);
+            break;
+        case 31: tita=2*(Math.PI)*(17/37);
+            break;
+        case 9: tita=2*(Math.PI)*(18/37);
+            break;
+        case 22: tita=2*(Math.PI)*(19/37);
+            break;
+        case 18: tita=2*(Math.PI)*(20/37);
+            break;
+        case 29: tita=2*(Math.PI)*(21/37);
+            break;
+        case 7: tita=2*(Math.PI)*(22/37);
+            break;
+        case 28: tita=2*(Math.PI)*(23/37);
+            break;
+        case 12: tita=2*(Math.PI)*(24/37);
+            break;
+        case 35: tita=2*(Math.PI)*(25/37);
+            break;
+        case 3: tita=2*(Math.PI)*(26/37);
+            break;
+        case 26: tita=2*(Math.PI)*(27/37);
+            break;
+        case 0: tita=2*(Math.PI)*(28/37);
+            break;
+        case 32: tita=2*(Math.PI)*(29/37);
+            break;
+        case 15: tita=2*(Math.PI)*(30/37);
+            break;
+        case 19: tita=2*(Math.PI)*(31/37);
+            break;
+        case 4: tita=2*(Math.PI)*(32/37);
+            break;
+        case 21: tita=2*(Math.PI)*(33/37);
+            break;
+        case 2: tita=2*(Math.PI)*(34/37);
+            break;
+        case 25: tita=2*(Math.PI)*(35/37);
+            break;
+        case 17: tita=2*(Math.PI)*(36/37);
+            break;
+    }
+
+    console.log(tita);
+    return tita;
+}
+var intervalid;
+/**
+*   Sirve para empezar la animacion
+*   @method comenzarAnimacion
+*/
+let comenzaranimacion =()=>{
+    console.log ("Se llamo a comenzar animacion");
+    intervalid= setInterval(girarpelota,10);
+}
+
+var angulo = 0;
+var vuelta =0;
+/**
+ * Sirve para girar la pelota de la ruleta
  * @method pelotaruleta
  */
-let pelotaruleta = () => {
-    const canvas = document.getElementById("ruletamov");
-    const ctx = canvas.getContext("2d");
-    // canvas.width=canvas.width;
-    ctx.fillStyle = "#FFFFFFFF";
-    ctx.arc(200, 79, 3, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-}
+let girarpelota =()=>{
+    var canvas = document.getElementById("ruletamov");
+    var ctx = canvas.getContext("2d");
+    var centroX = canvas.width/2;
+    var centroY = canvas.height / 2;
+    console.log(centroY);
+    console.log(centroX);
+    var radio = 69;
+    var dmov = 0.02;
+    var dtita= gradosimg();
+
+// Función para dibujar la pelota
+        canvas.width=canvas.width;
+
+        // Calculamos la posición de la pelota en función del ángulo
+        var x = centroX + Math.cos(angulo) * radio;
+        var y = centroY + (Math.sin(angulo) * radio)/2;
+
+        // Dibujamos la pelota
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        angulo+=dmov;
+
+        if (angulo >= (Math.PI * 4)+dtita) {
+            vuelta++;
+            if (vuelta >= 2) {
+                clearInterval(intervalid); // Detenemos el setInterval
+                angulo=0;
+                x = centroX + Math.cos(dtita) * radio;
+                y = centroY + (Math.sin(dtita) * radio)/2;
+
+                canvas.width=canvas.width;
+                ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                ctx.fillStyle = "white";
+                ctx.fill();
+                return;
+            }
+        }
+    }
