@@ -1,7 +1,7 @@
 /**
  * modifica el monto disponible
  * @method monto
- * @param {plata} valor - cantidad que se desea sumar o restar al monto actual (ya sea apuesta, ganacia, plata ingresada o retirada)
+ * @param {number} plata - cantidad que se desea sumar o restar al monto actual (ya sea apuesta, ganacia, plata ingresada o retirada)
  */
 var aceptar;
 let monto = (plata) => {
@@ -212,6 +212,7 @@ let girarrula = () => {
 /**
 *   Sirve para generar el delta grado que se usa para graficar la pelota en el resultado
 *   @method gradosimg
+ *   @return tita
 */
 let gradosimg =()=>{
     let tita;
@@ -322,14 +323,14 @@ let girarpelota =()=>{
     var dmov = 0.02;
     var dtita= gradosimg();
 
-// Función para dibujar la pelota
+
         canvas.width=canvas.width;
 
-        // Calculamos la posición de la pelota en función del ángulo
+
         var x = centroX + Math.cos(angulo) * radio;
         var y = centroY + (Math.sin(angulo) * radio)/2;
 
-        // Dibujamos la pelota
+
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, 2 * Math.PI);
         ctx.fillStyle = "white";
@@ -340,7 +341,7 @@ let girarpelota =()=>{
         if (angulo >= (Math.PI * 4)+dtita) {
             vuelta++;
             if (vuelta >= 2) {
-                clearInterval(intervalid); // Detenemos el setInterval
+                clearInterval(intervalid);
                 angulo=0;
                 x = centroX + Math.cos(dtita) * radio;
                 y = centroY + (Math.sin(dtita) * radio)/2;
