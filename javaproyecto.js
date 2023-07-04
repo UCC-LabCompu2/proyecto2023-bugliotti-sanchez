@@ -293,7 +293,7 @@ let gradosimg =()=>{
             break;
     }
 
-    console.log(tita);
+
     return tita;
 }
 var intervalid;
@@ -310,25 +310,21 @@ var angulo = 0;
 var vuelta =0;
 /**
  * Sirve para girar la pelota de la ruleta
- * @method pelotaruleta
+ * @method girarpelota
  */
 let girarpelota =()=>{
-    var canvas = document.getElementById("ruletamov");
-    var ctx = canvas.getContext("2d");
-    var centroX = canvas.width/2;
-    var centroY = canvas.height / 2;
-    console.log(centroY);
-    console.log(centroX);
-    var radio = 69;
-    var dmov = 0.02;
-    var dtita= gradosimg();
-
-
+    const canvas = document.getElementById("ruletamov");
+    const ctx = canvas.getContext("2d");
+    const centroX = canvas.width/2;
+    const centroY = canvas.height / 2;
+    const radio = 69;
+    const dmov = 0.02;
+    let dtita= gradosimg();
         canvas.width=canvas.width;
 
 
-        var x = centroX + Math.cos(angulo) * radio;
-        var y = centroY + (Math.sin(angulo) * radio)/2;
+        let x = centroX + Math.cos(angulo) * radio;
+        let y = centroY + (Math.sin(angulo) * radio)/2;
 
 
         ctx.beginPath();
@@ -339,8 +335,6 @@ let girarpelota =()=>{
         angulo+=dmov;
 
         if (angulo >= (Math.PI * 4)+dtita) {
-            vuelta++;
-            if (vuelta >= 2) {
                 clearInterval(intervalid);
                 angulo=0;
                 x = centroX + Math.cos(dtita) * radio;
@@ -351,6 +345,6 @@ let girarpelota =()=>{
                 ctx.fillStyle = "white";
                 ctx.fill();
                 return;
-            }
+
         }
     }

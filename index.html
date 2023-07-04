@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
     <script type="text/javascript" src="javaproyecto.js"></script>
 </head>
-<body onload="pelotaruleta()">
+<body>
 <header>
     <img src="imagenes/iconoruleta.png" id="icono" alt="Icono de ruleta">
     <h1 class="tituloPrincipal">
@@ -51,8 +51,7 @@
                 </p>
                 <p>
                     <label for="nuevomonto"> Ingresar o retirar plata:</label>
-                    <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1"
-                           onchange="monto(this.value)">
+                    <input type="number" name="nuevomonto" id="nuevomonto" min="0" step="1" onchange="monto(this.value)">
                 </p>
             </form>
         </div>
